@@ -1,11 +1,15 @@
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+import os
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-# ====== INSERT YOUR BOT TOKEN HERE ======
-BOT_TOKEN = "PASTE_YOUR_BOT_TOKEN_HERE"
+# ✅ Use environment variable for your token (Render secret)
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+# Safety check — stops the app if token is missing
+if not BOT_TOKEN:
+    raise ValueError("⚠️ BOT_TOKEN environment variable not set on Render.")
 
 EXAM_SITES = {
     "IIT JAM": "https://jam.iitm.ac.in/",
