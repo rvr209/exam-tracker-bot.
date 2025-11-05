@@ -44,7 +44,7 @@ def get_latest_updates(url, limit=5):
 
 async def check_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
-    if user.username != "YOUR_TELEGRAM_USERNAME":  # only you can use it
+    if user.username != "@Coockmeth":  # only you can use it
         await update.message.reply_text("⛔ Access denied.")
         return
 
